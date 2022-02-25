@@ -156,6 +156,7 @@
             this.Controls.Add(this.label1);
             this.Name = "inputProdi";
             this.Text = "inputProdi";
+            this.Load += new System.EventHandler(this.inputProdi_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

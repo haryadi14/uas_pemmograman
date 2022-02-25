@@ -40,6 +40,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,6 +73,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "delete";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -81,6 +83,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "update";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox4
             // 
@@ -146,11 +149,22 @@
             this.label2.TabIndex = 20;
             this.label2.Text = "Kode Prodi :";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(589, 122);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(87, 31);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "cari";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // updateProdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 600);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox3);
@@ -164,6 +178,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "updateProdi";
             this.Text = "updateProdi";
+            this.Load += new System.EventHandler(this.updateProdi_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -185,5 +200,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -20,24 +20,42 @@ namespace UAS_OOP_1204026
         public inputMhs()
         {
             InitializeComponent();
-            kodemahasiswaotomatis();
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
+        void munculprogramstudi()
+        {
+            MySqlDataReader rd;
+            MySqlConnection conn = konn.GetConn();
+            conn.Open();
 
+            cmd = new MySqlCommand("select * from ms_prodi", conn);
+            cmd.CommandType = CommandType.Text;
+            rd = cmd.ExecuteReader();
+
+            while (rd.Read())
+            {
+
+                comboBox1.Items.Add(rd[0].ToString());
+
+            }
+            rd.Close();
+            conn.Close();
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text.Trim() == "" || textBox3.Text.Trim() == "" || textBox2.Text.Trim() == "" )
+            if (textBox1.Text.Trim() == "" || textBox3.Text.Trim() == "" || comboBox1.Text.Trim() == "" )
             {
                 MessageBox.Show("Pastikan semua terisi");
             }
             else
             {
                 MySqlConnection conn = konn.GetConn();
-                cmd = new MySqlCommand("insert into ms_mhs values('" + textBox1.Text + "','" + textBox3.Text + "','" + textBox2.Text + "')", conn);
+                cmd = new MySqlCommand("insert into ms_mhs values('" + textBox1.Text + "','" + textBox3.Text + "','" + comboBox1.Text + "')", conn);
                 conn.Open();
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Data berhasil masuk");
@@ -47,7 +65,7 @@ namespace UAS_OOP_1204026
         void Kondisireset()
         {
             textBox1.Text = "";
-            textBox2.Text = "";
+            comboBox1.Text = "";
             textBox3.Text = "";
            
         }
@@ -126,6 +144,8 @@ namespace UAS_OOP_1204026
 
         private void inputMhs_Load(object sender, EventArgs e)
         {
+            kodemahasiswaotomatis();
+            munculprogramstudi();
 
         }
 
@@ -137,6 +157,11 @@ namespace UAS_OOP_1204026
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            munculprogramstudi();
         }
     }
 }

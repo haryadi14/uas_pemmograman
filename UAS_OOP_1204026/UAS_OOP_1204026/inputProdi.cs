@@ -25,7 +25,6 @@ namespace UAS_OOP_1204026
         public inputProdi()
         {
             InitializeComponent();
-            kodeotomatis();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -97,6 +96,12 @@ namespace UAS_OOP_1204026
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void inputProdi_Load(object sender, EventArgs e)
+        {
+            kodeotomatis();
+
         }
     }
 }
